@@ -1,0 +1,56 @@
+
+
+@font-face {
+    font-family: 'Sanchez';
+    src: url('caminho/para/sanchez.woff') format('woff'); /* Substitua pelo caminho real do arquivo .woff */
+}
+
+body {
+    font-family: "Sanchez", sans-serif;
+  }
+
+main {
+    margin-top: 20px;
+  }
+
+  aside {
+    background-color: #004A8D;
+    padding: 20px;
+    color: white;
+    
+  }
+
+  aside .logo{
+    height: 155px;
+    margin: top;
+    
+  }
+
+  aside h2 {
+    text-align: center;
+  }
+
+  aside hr{
+    
+    border: 1px solid rgb(255, 255, 255);
+  }
+
+  aside button {
+    background-color: #FFFFFF;
+    color: #004A8D;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 10px;
+    cursor: pointer;
+    width: 100%;
+    border-radius: 10px;
+  }
+
+  aside button:hover {
+    background-color: #F68B1F;
+    color: white;
+  }
+
+  .container {
+    margin-bottom: 20px;
+  }
