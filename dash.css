@@ -23,7 +23,8 @@ main {
   aside .logo{
     height: 155px;
     margin: top;
-    
+    margin-left: 110px;
+    margin-bottom: 170px;
   }
 
   aside h2 {
