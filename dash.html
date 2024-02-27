@@ -18,7 +18,7 @@
     <div class="row">
       <aside class="col-md-3">
 
-        <img src="/imagem/logo senac.svg" alt="logo senac" class="logo">
+        <img src="/teste/imagem/logo senac.svg" alt="logo senac" class="logo">
 
         <h2>Início</h2>
         <hr>
@@ -261,66 +261,68 @@
         <!-- Botão para Gerar Arquivo Excel -->
         <div class="container">
           <!-- <h2 class="text-center">Exportar para Excel</h2> -->
-          <button onclick="exportToExcel()">Exportar Dados para Excel</button>
+          <button onclick="exportar()">Exportar para Excel</button>
         </div>
       </main>
     </div>
   </div>
 
+  <script src="xlsx.full.min.js"></script>
   <script>
     // Função para exportar os dados para Excel
-    function exportToExcel() {
-      // Implementar a lógica para exportar os dados dos gráficos para um arquivo Excel
-      alert('Implementar a lógica para exportar para Excel.');
-    }
+    function exportarParaExcel(dadosPizza, dadosBarras) {
+      // Criar um novo livro de trabalho (workbook)
+      var wb = XLSX.utils.book_new();
+  
+      // Converter dados em planilhas (worksheets)
+      var planilhaPizza = XLSX.utils.aoa_to_sheet([['Subárea', 'Quantidade Respondida']].concat(dadosPizza.labels.map((label, index) => [label, dadosPizza.datasets[0].data[index]])));
+      var planilhaBarras = XLSX.utils.aoa_to_sheet([['Cidade', 'Quantidade Respondida']].concat(dadosBarras.labels.map((label, index) => [label, dadosBarras.datasets[0].data[index]])));
+  
+      // Adicionar planilhas ao livro de trabalho
+      XLSX.utils.book_append_sheet(wb, planilhaPizza, 'Dados do Gráfico de Pizza');
+      XLSX.utils.book_append_sheet(wb, planilhaBarras, 'Dados do Gráfico de Barras');
+  
+      // Exportar o livro de trabalho para um arquivo
+      XLSX.writeFile(wb, 'dados_graficos.xlsx');
 
+      alert('exportação realizada com sucesso.');
+    }
+  
     // Dados de exemplo para os gráficos
     var dadosPizza = {
       labels: ['Subárea 1', 'Subárea 2', 'Subárea 3', 'Subárea 4', 'Subárea 5', 'Subárea 6'],
       datasets: [{
-        data: [50, 30, 40, 60, 55, 20,],
+        data: [50, 30, 40, 60, 55, 20],
         backgroundColor: ['#ff6384', '#36a2eb', '#ffce56', '#228B22', '#FFDEAD', '#8A2BE2']
       }]
     };
-
+  
     var dadosBarras = {
-      labels: ['Natal-RN', 'Mossoró', 'Parnamirim', 'São Gonçalo do Amarante', 'Macaíba', 'Ceará-Mirim', 'Extremoz', 'Caicó', 'Assú', 'São José de Mipibu', 'Currais Novos', 'Santa Cruz', 'Apodi', 'Nova Cruz', 'João Câmara', 'Touros', 'Nísia Floresta', 'Pau dos Ferros', 'Canguaretama', 'Macau', 'Baraúna', 'Goianinha', 'Areia Branca', 'São Miguel', 'Monte Alegre', 'Santo Antônio', 'Parelhas', 'Caraúbas', 'Jucurutu', 'Tibau do Sul', 'São Paulo do Potengi', 'Lagoa Nova', 'Guamaré', 'Ipanguaçu', 'Jardim de Piranhas', 'Pedro Velho', 'Alexandria', 'Upanema', 'Tangará', 'Arez', 'Serra do Mel', 'Alto do Rodrigues', 'Santana do Matos', 'Poço Branco', 'Pendências', 'Brejinho (Rio Grande do Norte)', 'Governador Dix-Sept Rosado', 'Jardim do Seridó', 'Angicos', 'Ielmo Marinho', 'Montanhas (Rio Grande do Norte)', 'Taipu', 'São José do Campestre', 'Patu', 'Cerro Corá', 'Tenente Ananias', 'Passa-e-Fica', 'Afonso Bezerra', 'Vera Cruz', 'Espírito Santo', 'Acari', 'Rio do Fogo', 'Serra Caiada', 'Maxaranguape', 'São Miguel do Gostoso', 'Campo Redondo', 'Florânia', 'Umarizal', 'São Tomé', 'Bom Jesus', 'Grossos', 'Lajes', 'Campo Grande', 'Carnaubais', 'Pureza', 'Luís Gomes', 'Boa Saúde', 'Baía Formosa', 'Lagoa Salgada', 'Martins', 'Cruzeta', 'Carnaúba dos Dantas', 'Marcelino Vieira', 'Jaçanã', 'São Rafael', 'Portalegre', 'Serra Negra do Norte', 'Riachuelo', 'Lagoa de Pedras', 'Itajá', 'Doutor Severiano', 'Lagoa d\'Anta', 'Antônio Martins', 'Jandaíra', 'Serrinha', 'São Vicente', 'Caiçara do Norte', 'Pedro Avelino', 'Encanto', 'Senador Elói de Souza', 'São João do Sabugi', 'Felipe Guerra', 'Tenente Laurentino Cruz', 'José da Penha', 'São Pedro', 'Serra de São Bento', 'Severiano Melo', 'Rafael Fernandes', 'Tibau', 'Equador', 'Itaú', 'Várzea', 'Porto do Mangue', 'Coronel Ezequiel', 'Japi', 'Ouro Branco', 'Santa Maria', 'Bento Fernandes', 'Parazinho', 'Lajes Pintadas', 'Janduís', 'Almino Afonso', 'Serrinha dos Pintos', 'Sítio Novo', 'São José do Seridó', 'Messias Targino', 'Rodolfo Fernandes', 'Coronel João Pessoa', 'São Francisco do Oeste', 'Riacho de Santana', 'Frutuoso Gomes', 'Senador Georgino Avelino', 'Barcelona', 'Paraná', 'Major Sales', 'Olho-d\'Água do Borges', 'São Bento do Trairi', 'Jundiá', 'Pedra Grande', 'Paraú', 'São Fernando', 'Lucrécia', 'Triunfo Potiguar', 'São Bento do Norte', 'Caiçara do Rio do Vento', 'Ruy Barbosa', 'Vila Flor', 'Passagem', 'Venha-Ver', 'Pilões', 'Água Nova', 'Fernando Pedroza', 'Rafael Godeiro', 'Riacho da Cruz', 'Francisco Dantas', 'Santana do Seridó', 'Lagoa de Velhos', 'Pedra Preta', 'Jardim de Angicos', 'Timbaúba dos Batistas', 'Taboleiro Grande', 'Bodó', 'Monte das Gameleiras', 'Galinhos', 'João Dias', 'Ipueira', 'Viçosa'],
+      labels: ['Natal-RN', 'Mossoró', 'Parnamirim', 'São Gonçalo do Amarante', 'Macaíba', 'Ceará-Mirim'],
       datasets: [{
         label: 'Questionários Respondidos',
-        data: [5, 8, 12, 3, 10, 15, 7, 9, 20, 18, 14, 6, 11, 17, 2, 4, 13, 1, 16, 19, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140, 141, 142, 143, 144, 145, 146, 147, 148, 149, 150, 151, 152, 153, 154, 155, 156, 157, 158, 159, 160, 161, 162, 163, 164, 165, 166, 167, 168, 169, 170, 171, 172, 173, 174, 175, 176, 177, 178, 179, 180, 181, 182, 183, 184, 185, 186, 187, 188, 189, 190, 191, 192, 193, 194, 195, 196, 197, 198, 199, 200],
-        backgroundColor: ['#ff6384', '#36a2eb', '#ffce56', '#ff8d1e', '#363636', '#6959CD', '#228B22', '#FFDEAD', '#8A2BE2', '#FFB6C1', '#FF6347', '#1E90FF', '#32CD32', '#8B008B', '#FF69B4', '#800000', '#FFFF00', '#00FFFF', '#B22222', '#FF4500']
+        data: [5, 8, 12, 3, 10, 15],
+        backgroundColor: ['#ff6384', '#36a2eb', '#ffce56', '#ff8d1e', '#363636', '#6959CD']
       }]
     };
-
-    var dadosLinhas = {
-      labels: ['Semana 1', 'Semana 2', 'Semana 3', 'Semana 4', 'Semana 5', 'Semana 6', 'Semana 7', 'Semana 8', 'Semana 9'],
-      datasets: [{
-        label: 'Questionários Respondidos',
-        data: [50, 30, 40, 60, 55, 20, 8, 15, 67],
-        borderColor: ['#ff6384', '#36a2eb', '#ffce56', '#ff8d1e', '#363636', '#6959CD', '#228B22', '#FFDEAD', '#FFB6C1'],
-        fill: false
-      }]
-    };
-
+  
     // Renderizar os gráficos
     var ctxPizza = document.getElementById('pieChart').getContext('2d');
     new Chart(ctxPizza, {
       type: 'pie',
       data: dadosPizza
     });
-
+  
     var ctxBarras = document.getElementById('barChart').getContext('2d');
     new Chart(ctxBarras, {
       type: 'bar',
       data: dadosBarras
     });
-
-    // Gráfico de Linhas comentado
-    // var ctxLinhas = document.getElementById('lineChart').getContext('2d');
-    // new Chart(ctxLinhas, {
-    //   type: 'line',
-    //   data: dadosLinhas
-    // });
+  
+    // Função para chamar a exportação para Excel
+    function exportar() {
+      exportarParaExcel(dadosPizza, dadosBarras);
+    }
   </script>
 </body>
 
