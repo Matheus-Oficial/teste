@@ -18,11 +18,13 @@
     <div class="row">
       <aside class="col-md-3">
 
-        <img src="/teste/imagem/logo senac.svg" alt="logo senac" class="logo">
+        <img src="/imagem/logo senac.svg" alt="logo senac" class="logo">
 
         <h2>Início</h2>
         <hr>
-        <button class="dashboard">Dashboard</button>
+        <button class="dashboard">
+          <img src="/imagem/noun-dashboard-6499917 1.svg" alt="Ícone dashboard"> Dashboard
+        </button>
         <!-- Filtro por Ano -->
         <div>
           <h3>Filtrar por Ano</h3>
@@ -224,20 +226,21 @@
         <hr>
         <!-- Botões -->
         <button class="criarQuestionario">
-          <img src="/teste/imagem/noun-survey-5626385 2.svg" alt="">Criar Novo Questionário
+          <img src="/imagem/noun-survey-5626385 2.svg" alt="Ícone criarQuestionario"> Criar Novo Questionário
         </button>
-        <button class="listar_Questionario">
-          <img src="/teste/imagem/noun-forms-5626390 1.svg" alt="">Listar Formulários
+        <button class="listarQuestionario">
+          <img src="/imagem/noun-forms-5626390 1.svg" alt="Ícone listar_Questionario"> Listar Formulários
         </button>
         <!-- Informações da Sessão -->
 
-        <div class="encerrarSessao">
-          <img src="/teste/imagem/Male User.svg" alt=""> André
+        <div class="botoesInferior">
+          <button class="dadosUsuario">
+            <img src="/imagem/Male User.svg" alt="  Ícone do Usuário"> André
 
-          <button class="sair">
-            <img src="/imagem/Logout Rounded (1).svg" alt="Ícone de sair"> Sair
-            
-          </button>
+            <button class="sair">
+              <img src="/imagem/Logout Rounded (1).svg" alt="Ícone de sair"> Sair
+
+            </button>
         </div>
       </aside>
       <main class="col-md-9">
@@ -273,21 +276,21 @@
     function exportarParaExcel(dadosPizza, dadosBarras) {
       // Criar um novo livro de trabalho (workbook)
       var wb = XLSX.utils.book_new();
-  
+
       // Converter dados em planilhas (worksheets)
       var planilhaPizza = XLSX.utils.aoa_to_sheet([['Subárea', 'Quantidade Respondida']].concat(dadosPizza.labels.map((label, index) => [label, dadosPizza.datasets[0].data[index]])));
       var planilhaBarras = XLSX.utils.aoa_to_sheet([['Cidade', 'Quantidade Respondida']].concat(dadosBarras.labels.map((label, index) => [label, dadosBarras.datasets[0].data[index]])));
-  
+
       // Adicionar planilhas ao livro de trabalho
       XLSX.utils.book_append_sheet(wb, planilhaPizza, 'Dados do Gráfico de Pizza');
       XLSX.utils.book_append_sheet(wb, planilhaBarras, 'Dados do Gráfico de Barras');
-  
+
       // Exportar o livro de trabalho para um arquivo
       XLSX.writeFile(wb, 'dados_graficos.xlsx');
 
       alert('exportação realizada com sucesso.');
     }
-  
+
     // Dados de exemplo para os gráficos
     var dadosPizza = {
       labels: ['Subárea 1', 'Subárea 2', 'Subárea 3', 'Subárea 4', 'Subárea 5', 'Subárea 6'],
@@ -296,29 +299,50 @@
         backgroundColor: ['#ff6384', '#36a2eb', '#ffce56', '#228B22', '#FFDEAD', '#8A2BE2']
       }]
     };
-  
+
     var dadosBarras = {
-      labels: ['Natal-RN', 'Mossoró', 'Parnamirim', 'São Gonçalo do Amarante', 'Macaíba', 'Ceará-Mirim'],
+      labels: ['Acari', 'Açu', 'Afonso Bezerra', 'Água Nova', 'Alexandria', 'Almino Afonso', 'Alto do Rodrigues', 'Angicos',
+        'Antônio Martins', 'Apodi', 'Areia Branca', 'Arês', 'Augusto Severo', 'Baía Formosa', 'Baraúna', 'Barcelona', 'Bento Fernandes',
+        'Bodó', 'Bom Jesus', 'Brejinho', 'Caiçara do Norte', 'Caiçara do Rio do Vento', 'Caicó', 'Campo Redondo', 'Canguaretama',
+        'Caraúbas', 'Carnaúba dos Dantas', 'Carnaubais', 'Ceará-Mirim', 'Cerro Corá', 'Coronel Ezequiel', 'Coronel João Pessoa',
+        'Cruzeta', 'Currais Novos', 'Doutor Severiano', 'Encanto', 'Equador', 'Espírito Santo', 'Extremoz', 'Felipe Guerra',
+        'Fernando Pedroza', 'Florânia', 'Francisco Dantas', 'Frutuoso Gomes', 'Galinhos', 'Goianinha', 'Governador Dix-Sept Rosado',
+        'Grossos', 'Guamaré', 'Ielmo Marinho', 'Ipanguaçu', 'Ipueira', 'Itajá', 'Itaú', 'Jaçanã', 'Jandaíra', 'Janduís', 'Januário Cicco',
+        'Japi', 'Jardim de Angicos', 'Jardim de Piranhas', 'Jardim do Seridó', 'João Câmara', 'João Dias', 'José da Penha', 'Jucurutu',
+        'Jundiá', 'Lagoa d`Anta', 'Lagoa de Pedras', 'Lagoa de Velhos', 'Lagoa Nova', 'Lagoa Salgada', 'Lajes', 'Lajes Pintadas', 'Lucrécia',
+        'Luís Gomes', 'Macaíba', 'Macau', 'Major Sales', 'Marcelino Vieira', 'Martins', 'Maxaranguape', 'Messias Targino', 'Montanhas',
+        'Monte Alegre', 'Monte das Gameleiras', 'Mossoró', 'Natal', 'Nísia Floresta', 'Nova Cruz', 'Olho-d`Água do Borges', 'Ouro Branco',
+        'Paraná', 'Paraú', 'Parazinho', 'Parelhas', 'Parnamirim', 'Passa e Fica', 'Passagem', 'Patu', 'Pau dos Ferros', 'Pedra Grande',
+        'Pedra Preta', 'Pedro Avelino', 'Pedro Velho', 'Pendências', 'Pilões', 'Poço Branco', 'Portalegre', 'Porto do Mangue',
+        'Presidente Juscelino', 'Pureza', 'Rafael Fernandes', 'Rafael Godeiro', 'Riacho da Cruz', 'Riacho de Santana', 'Riachuelo',
+        'Rio do Fogo', 'Rodolfo Fernandes', 'Ruy Barbosa', 'Santa Cruz', 'Santa Maria', 'Santana do Matos', 'Santana do Seridó',
+        'Santo Antônio', 'São Bento do Norte', 'São Bento do Trairí', 'São Fernando', 'São Francisco do Oeste', 'São Gonçalo do Amarante',
+        'São João do Sabugi', 'São José de Mipibu', 'São José do Campestre', 'São José do Seridó', 'São Miguel', 'São Miguel do Gostoso',
+        'São Paulo do Potengi', 'São Pedro', 'São Rafael', 'São Tomé', 'São Vicente', 'Senador Elói de Souza', 'Senador Georgino Avelino',
+        'Serra Caiada', 'Serra de São Bento', 'Serra do Mel', 'Serra Negra do Norte', 'Serrinha', 'Serrinha dos Pintos', 'Severiano Melo',
+        'Sítio Novo', 'Taboleiro Grande', 'Taipu', 'Tangará', 'Tenente Ananias', 'Tenente Laurentino Cruz', 'Tibau', 'Tibau do Sul',
+        'Timbaúba dos Batistas', 'Touros', 'Triunfo Potiguar', 'Umarizal', 'Upanema', 'Várzea', 'Venha-Ver', 'Vera Cruz', 'Viçosa',
+        'Vila Flor'],
       datasets: [{
         label: 'Questionários Respondidos',
-        data: [5, 8, 12, 3, 10, 15],
+        data: [18, 22, 9, 14, 7, 20, 25, 28, 32, 23, 30, 35, 38, 42, 33, 40, 45, 48, 52, 43, 50, 55, 58, 62, 53, 60, 65, 68, 72, 63, 70, 75, 78, 82, 73, 80, 85, 88, 92, 83, 90, 95, 98, 102, 93, 100, 105, 108, 112, 103, 110, 115, 118, 122, 113, 120, 125, 128, 132, 123, 130, 135, 138, 142, 133, 140, 145, 148, 152, 143, 150, 155, 158, 162, 153, 160, 165, 168, 172, 163, 170, 175, 178, 182, 173, 180, 185, 188, 192, 183, 190, 195, 198, 202, 193, 200, 205, 208, 212, 203, 210, 215, 218, 222, 213, 220, 225, 228, 232, 223, 230, 235, 238, 242, 233, 240, 245, 248, 252, 243, 250, 255, 258, 262, 253, 260, 265, 268, 272, 263, 270, 275, 278, 282, 273, 280, 285, 288, 292, 283, 290, 295, 298, 302, 293, 300, 305, 308, 312, 303, 310, 315, 318, 322, 313, 320, 325, 328, 332, 323, 330, 335, 338, 342, 333, 340, 345, 348, 352, 343, 350, 355, 358, 362, 353, 360, 365, 368, 372, 363, 370, 375, 378, 382, 373, 380, 385, 388, 392, 383, 390, 395, 398, 402, 393, 400, 405, 408, 412, 403, 410, 415, 418, 422, 413, 420, 425, 428, 432, 423, 430, 435, 438, 442, 433, 440, 445, 448, 452, 443, 450, 455, 458, 462, 453, 460, 465, 468, 472, 463, 470, 475, 478, 482, 473, 480, 485, 488, 492, 483, 490, 495, 498, 502, 493, 500, 505, 508, 512],
         backgroundColor: ['#ff6384', '#36a2eb', '#ffce56', '#ff8d1e', '#363636', '#6959CD']
       }]
     };
-  
+
     // Renderizar os gráficos
     var ctxPizza = document.getElementById('pieChart').getContext('2d');
     new Chart(ctxPizza, {
       type: 'pie',
       data: dadosPizza
     });
-  
+
     var ctxBarras = document.getElementById('barChart').getContext('2d');
     new Chart(ctxBarras, {
       type: 'bar',
       data: dadosBarras
     });
-  
+
     // Função para chamar a exportação para Excel
     function exportar() {
       exportarParaExcel(dadosPizza, dadosBarras);

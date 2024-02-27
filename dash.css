@@ -19,7 +19,7 @@ aside {
 
 }
 
-aside .logo{
+aside .logo {
   height: 150px;
   margin: top;
   margin-left: 110px;
@@ -39,9 +39,8 @@ aside button {
   background-color: #FFFFFF;
   color: #004A8D;
   border: none;
-  padding: 10px 20px;
+  padding: 5px;
   margin-top: 10px;
-  cursor: pointer;
   width: 100%;
   border-radius: 10px;
 }
@@ -59,24 +58,51 @@ aside button:hover {
   margin-bottom: 5%;
 }
 
-.encerrarSessao {
+.botoesInferior {
   align-items: flex-end;
   flex-direction: column;
-  
-  align-items: flex-end;
-  padding: 0%;
+  padding: 5px;
   margin-top: 240%;
+  border-radius: 10px;
+  width: 100%;
+  border: none;
 }
 
 .sair {
-  background-color: #3498db; /* Cor de fundo do botão */
+  background-color: #3498db;
+  /* Cor de fundo do botão */
   border: none;
-  color: white; /* Cor do texto */
-  padding: 10px 20px; /* Espaçamento interno */
-  text-align: center; /* Alinhamento do texto */
-  text-decoration: none; /* Remover sublinhado */
+  color: white;
+  /* Cor do texto */
+  padding: 10px 20px;
+  /* Espaçamento interno */
+  text-align: center;
+  /* Alinhamento do texto */
+  text-decoration: none;
+  /* Remover sublinhado */
   display: inline-block;
   font-size: 16px;
   cursor: pointer;
 }
 
+
+.dadosUsuario {
+  background-color: #3498db;
+  /* Cor de fundo do botão */
+  border: none;
+  color: white;
+  /* Cor do texto */
+  padding: 10px 20px;
+  /* Espaçamento interno */
+  text-align: center;
+  /* Alinhamento do texto */
+  text-decoration: none;
+  /* Remover sublinhado */
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.botoesInferior :hover {
+  background-color: #3498db;
+}
