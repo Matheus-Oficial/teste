@@ -20,7 +20,7 @@ aside {
 }
 
 aside .logo {
-  height: 155px;
+  height: 150px;
   margin: top;
   margin-left: 110px;
   margin-bottom: 170px;
@@ -61,17 +61,22 @@ aside button:hover {
 
 .encerrarSessao {
   align-items: flex-end;
-  display: flex;
+  flex-direction: column;
+  
   align-items: flex-end;
   padding: 0%;
   margin-top: 240%;
 }
 
 .sair {
-background-color: transparent;
-margin: 0;
-padding: 0;
-display: flex;
-align-items: flex-end;
+  background-color: #3498db; /* Cor de fundo do botão */
+  border: none;
+  color: white; /* Cor do texto */
+  padding: 10px 20px; /* Espaçamento interno */
+  text-align: center; /* Alinhamento do texto */
+  text-decoration: none; /* Remover sublinhado */
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
 }
 
