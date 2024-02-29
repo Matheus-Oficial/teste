@@ -26,7 +26,7 @@
           <img class="icones" src="/imagem/Vector.svg" alt="Ícone dashboard"> Dashboard
         </button>
         <!-- Filtro por Ano -->
-        <div>
+        <div class="ano">
           <h3>Filtrar por Ano</h3>
           <select class="form-control mb-3">
             <option>2022</option>
@@ -35,7 +35,7 @@
           </select>
         </div>
         <!-- Filtro por Cidade -->
-        <div>
+        <div class="cidade">
           <h3>Filtrar por Cidade</h3>
           <select id="filtroCidade" class="form-control mb-3">
             <option value="Acari">Acari</option>
@@ -234,14 +234,15 @@
         <!-- Informações da Sessão -->
 
         <div class="botoesInferior">
-          <button class="dadosUsuario">
-            <img src="/imagem/Male User.svg" alt="  Ícone do Usuário"> André
-
-            <button class="sair">
-              <img src="/imagem/Logout Rounded (1).svg" alt="Ícone de sair"> Sair
-
-            </button>
+          <button class="dadosUsuario" >
+            <img src="/teste/imagem/Male User.svg" alt="Ícone do Usuário"> André
+          </button>
+          <button class="sair">
+            <img src="/teste/imagem/Logout Rounded (1).svg" alt="Ícone de sair"> Sair
+          </button>
         </div>
+        
+        
       </aside>
       <main class="col-md-9">
         <!-- Gráfico de Pizza -->
@@ -347,6 +348,8 @@
     function exportar() {
       exportarParaExcel(dadosPizza, dadosBarras);
     }
+
+    
   </script>
 </body>
 

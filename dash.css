@@ -20,8 +20,9 @@ aside {
 }
 
 aside .logo {
-  width: 450px; /* ajuste conforme necessário */
-  height: 150px; /* ajuste conforme necessário */
+  height: 150px;
+  margin: top;
+  margin-left: 110px;
   margin-bottom: 170px;
   display: flex;
   transform-origin: center center;
