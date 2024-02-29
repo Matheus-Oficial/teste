@@ -20,10 +20,12 @@ aside {
 }
 
 aside .logo {
-  height: 150px;
-  margin: top;
-  margin-left: 110px;
+  width: 450px; /* ajuste conforme necessário */
+  height: 150px; /* ajuste conforme necessário */
   margin-bottom: 170px;
+  display: flex;
+  transform-origin: center center;
+  padding: auto;
 }
 
 aside h2 {
@@ -37,12 +39,23 @@ aside hr {
 
 aside button {
   background-color: #FFFFFF;
-  color: #004A8D;
+  color: #004a8d;
   border: none;
-  padding: 5px;
+  padding: 10px 20px;
   margin-top: 10px;
   width: 100%;
   border-radius: 10px;
+  font-size: 18px;
+}
+
+.dashboard {
+  background-color: #FFFFFF;
+  color: #004a8d;
+  border: none;
+  margin-top: 10px;
+  width: 100%;
+  border-radius: 10px;
+  font-size: 18px;
 }
 
 aside button:hover {
@@ -105,4 +118,15 @@ aside button:hover {
 
 .botoesInferior :hover {
   background-color: #3498db;
+}
+
+.icones {
+  display: flex;
+  position: absolute;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.icones :hover{
+  background-color: #FFFFFF;
 }
